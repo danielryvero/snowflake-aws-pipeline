@@ -13,4 +13,11 @@ create or replace storage integration S3_connection
 
 --from the description of your integration, 
 --grab the STORAGE_AWS_EXTERNAL_ID and paste it in the access policy for the bucket
-    desc integration S3_connection;
+desc integration S3_connection;
+
+--another way to configure the SNS and SQS ingration is by creating a PIPE pointing
+--to the stage with the integration to the S3 bucket and do:
+show pipes;
+
+--then copy the ARN in the notification_channel column and paste it
+--in the "SQS queue ARN" option of the S3 bucket properties
